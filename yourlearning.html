@@ -1,1 +1,10 @@
-<script>window.location.href = "https://openeducation.runs-on.dev/main/learn1.html?t=" + btoa(String.fromCharCode(...new Uint8Array(new BigUint64Array([BigInt(Math.floor(Date.now()/1000))]).buffer)));</script>
+<script>
+const timestamp = BigInt(Math.floor(Date.now() / 1000));
+const bytes = new Uint8Array(new BigUint64Array([timestamp]).buffer);
+const encoded = btoa(String.fromCharCode(...bytes));
+
+window.location.replace(
+    "https://openeducation.runs-on.dev/main/learn1.html?t=" +
+    encodeURIComponent(encoded)
+);
+</script>
